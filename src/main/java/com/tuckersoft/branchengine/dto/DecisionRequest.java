@@ -9,7 +9,7 @@ public record DecisionRequest(
         @NotNull(message = "El playthroughId es obligatorio")
         Long playthroughId,
 
-        @NotBlank(message = "El rawInput es obligatorio")
+        @NotNull(message = "El rawInput es obligatorio")
         @Size(min = 10, message = "El rawInput debe tener al menos 10 caracteres")
         String rawInput,
 

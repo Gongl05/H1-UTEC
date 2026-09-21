@@ -3,6 +3,8 @@ package com.tuckersoft.branchengine.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "story_nodes")
@@ -41,4 +43,12 @@ public class StoryNode {
 
     @Column(nullable = false)
     private Instant createdAt;
+
+    @OneToMany(mappedBy = "currentNode")
+    @Builder.Default
+    private List<Playthrough> playthroughs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "node")
+    @Builder.Default
+    private List<Decision> decisions = new ArrayList<>();
 }

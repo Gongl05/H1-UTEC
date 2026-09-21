@@ -3,6 +3,8 @@ package com.tuckersoft.branchengine.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "decisions")
@@ -51,4 +53,8 @@ public class Decision {
 
     @Column(nullable = false)
     private Instant updatedAt;
+
+    @OneToMany(mappedBy = "decision")
+    @Builder.Default
+    private List<RealityLog> realityLogs = new ArrayList<>();
 }

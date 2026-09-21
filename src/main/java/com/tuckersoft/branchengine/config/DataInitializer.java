@@ -19,13 +19,13 @@ public class DataInitializer implements CommandLineRunner {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Value("${app.admin.display-name:Colin Ritman}")
+    @Value("${app.admin.display-name}")
     private String adminName;
 
-    @Value("${app.admin.email:colin@tuckersoft.co.uk}")
+    @Value("${app.admin.email}")
     private String adminEmail;
 
-    @Value("${app.admin.password:colin1984}")
+    @Value("${app.admin.password}")
     private String adminPassword;
 
     @Override

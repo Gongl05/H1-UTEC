@@ -35,7 +35,7 @@ public class PlaythroughService {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
 
-        StoryNode startNode = storyNodeRepository.findByNodeCode(request.startNodeCode())
+        StoryNode startNode = storyNodeRepository.findByNodeCodeForUpdate(request.startNodeCode())
                 .orElseThrow(() -> new ResourceNotFoundException("Nodo no encontrado con nodeCode: " + request.startNodeCode()));
 
         if (playthroughRepository.existsByPlayerTag(request.playerTag())) {
@@ -108,7 +108,7 @@ public class PlaythroughService {
             throw new ForbiddenException("No tienes permiso para acceder a esta partida");
         }
 
-        List<Decision> decisions = decisionRepository.findByPlaythroughOrderByCreatedAtAsc(playthrough);
+        List<Decision> decisions = decisionRepository.findByPlaythroughOrderByCreatedAtAscIdAsc(playthrough);
         List<PlaythroughPathStep> steps = new ArrayList<>();
 
         int order = 1;

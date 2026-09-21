@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface DecisionRepository extends JpaRepository<Decision, Long>, JpaSpecificationExecutor<Decision> {
     List<Decision> findByPlaythroughOrderByCreatedAtAsc(Playthrough playthrough);
+    List<Decision> findByPlaythroughOrderByCreatedAtAscIdAsc(Playthrough playthrough);
 }

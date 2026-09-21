@@ -15,7 +15,5 @@ public record RegisterRequest(
 
         @NotBlank(message = "El displayName es obligatorio")
         @Size(min = 3, max = 60, message = "El displayName debe tener entre 3 y 60 caracteres")
-        String displayName,
-
-        String role
+        String displayName
 ) {}

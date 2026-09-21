@@ -3,6 +3,8 @@ package com.tuckersoft.branchengine.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -31,4 +33,8 @@ public class User {
 
     @Column(nullable = false)
     private Instant createdAt;
+
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Playthrough> playthroughs = new ArrayList<>();
 }

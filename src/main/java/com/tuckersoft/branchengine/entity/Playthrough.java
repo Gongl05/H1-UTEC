@@ -3,6 +3,8 @@ package com.tuckersoft.branchengine.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "playthroughs")
@@ -51,4 +53,8 @@ public class Playthrough {
 
     @Column(nullable = false)
     private Instant updatedAt;
+
+    @OneToMany(mappedBy = "playthrough")
+    @Builder.Default
+    private List<Decision> decisions = new ArrayList<>();
 }
